@@ -7,7 +7,7 @@
 //
 
 #import "WOViewController.h"
-#import "WOMyScene.h"
+#import "WOWorldScene.h"
 
 @implementation WOViewController
 
@@ -21,25 +21,11 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [WOMyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    SKScene * scene = [WOWorldScene sceneWithSize:CGSizeMake(skView.bounds.size.height, skView.bounds.size.width)];
+    scene.scaleMode = SKSceneScaleModeAspectFit;
     
     // Present the scene.
     [skView presentScene:scene];
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
 }
 
 - (void)didReceiveMemoryWarning

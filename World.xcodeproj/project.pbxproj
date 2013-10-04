@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8639E03C17FE274A004D75C8 /* WOFloor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8639E03B17FE274A004D75C8 /* WOFloor.m */; };
+		863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E72BC17FE21D3006BB7AC /* WOPlant.m */; };
+		8682452917FBD0D100FAB77D /* JCControlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452617FBD0D100FAB77D /* JCControlPad.m */; };
+		8682452D17FBD4CC00FAB77D /* WOChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452C17FBD4CC00FAB77D /* WOChunk.m */; };
+		86B48F2E17FBCD410003EA5F /* WOWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F2D17FBCD410003EA5F /* WOWorldScene.m */; };
+		86B48F3717FBCDBE0003EA5F /* PerlinNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3617FBCDBE0003EA5F /* PerlinNoise.m */; };
+		86B48F3E17FBCDDD0003EA5F /* WOCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3917FBCDDD0003EA5F /* WOCharacter.m */; };
+		86B48F3F17FBCDDD0003EA5F /* WOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3B17FBCDDD0003EA5F /* WOObject.m */; };
+		86B48F4017FBCDDD0003EA5F /* WOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3D17FBCDDD0003EA5F /* WOPlayer.m */; };
+		86B48F4417FBCDFB0003EA5F /* WOWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F4317FBCDFB0003EA5F /* WOWorld.m */; };
 		86C5DC5717FBCA8E005F6AEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC5617FBCA8E005F6AEA /* Foundation.framework */; };
 		86C5DC5917FBCA8E005F6AEA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC5817FBCA8E005F6AEA /* CoreGraphics.framework */; };
 		86C5DC5B17FBCA8E005F6AEA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC5A17FBCA8E005F6AEA /* UIKit.framework */; };
@@ -16,7 +26,6 @@
 		86C5DC6917FBCA8E005F6AEA /* WOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC6817FBCA8E005F6AEA /* WOAppDelegate.m */; };
 		86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC6A17FBCA8E005F6AEA /* Main.storyboard */; };
 		86C5DC6F17FBCA8E005F6AEA /* WOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */; };
-		86C5DC7217FBCA8E005F6AEA /* WOMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC7117FBCA8E005F6AEA /* WOMyScene.m */; };
 		86C5DC7417FBCA8E005F6AEA /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC7317FBCA8E005F6AEA /* Spaceship.png */; };
 		86C5DC7617FBCA8E005F6AEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC7517FBCA8E005F6AEA /* Images.xcassets */; };
 		86C5DC7D17FBCA8F005F6AEA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC7C17FBCA8F005F6AEA /* XCTest.framework */; };
@@ -24,6 +33,10 @@
 		86C5DC7F17FBCA8F005F6AEA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC5A17FBCA8E005F6AEA /* UIKit.framework */; };
 		86C5DC8717FBCA8F005F6AEA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC8517FBCA8F005F6AEA /* InfoPlist.strings */; };
 		86C5DC8917FBCA8F005F6AEA /* WorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC8817FBCA8F005F6AEA /* WorldTests.m */; };
+		86ECED8A17FE2DB100055C5B /* WONoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ECED8917FE2DB100055C5B /* WONoise.m */; };
+		86ECED8E17FE2DCB00055C5B /* WONoiseTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */; };
+		86F5DD4117FE8AE7002AA056 /* JCMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5DD4017FE8AE7002AA056 /* JCMath.m */; };
+		86F99C1917FE79F8002DEFB7 /* WOWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F99C1817FE79F8002DEFB7 /* WOWall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +50,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8639E03A17FE274A004D75C8 /* WOFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOFloor.h; sourceTree = "<group>"; };
+		8639E03B17FE274A004D75C8 /* WOFloor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOFloor.m; sourceTree = "<group>"; };
+		863E72BB17FE21D3006BB7AC /* WOPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOPlant.h; sourceTree = "<group>"; };
+		863E72BC17FE21D3006BB7AC /* WOPlant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOPlant.m; sourceTree = "<group>"; };
+		8682452517FBD0D100FAB77D /* JCControlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCControlPad.h; sourceTree = "<group>"; };
+		8682452617FBD0D100FAB77D /* JCControlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCControlPad.m; sourceTree = "<group>"; };
+		8682452B17FBD4CC00FAB77D /* WOChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOChunk.h; sourceTree = "<group>"; };
+		8682452C17FBD4CC00FAB77D /* WOChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOChunk.m; sourceTree = "<group>"; };
+		86B48F2C17FBCD410003EA5F /* WOWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWorldScene.h; sourceTree = "<group>"; };
+		86B48F2D17FBCD410003EA5F /* WOWorldScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWorldScene.m; sourceTree = "<group>"; };
+		86B48F3517FBCDBE0003EA5F /* PerlinNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerlinNoise.h; sourceTree = "<group>"; };
+		86B48F3617FBCDBE0003EA5F /* PerlinNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerlinNoise.m; sourceTree = "<group>"; };
+		86B48F3817FBCDDD0003EA5F /* WOCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOCharacter.h; sourceTree = "<group>"; };
+		86B48F3917FBCDDD0003EA5F /* WOCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOCharacter.m; sourceTree = "<group>"; };
+		86B48F3A17FBCDDD0003EA5F /* WOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOObject.h; sourceTree = "<group>"; };
+		86B48F3B17FBCDDD0003EA5F /* WOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOObject.m; sourceTree = "<group>"; };
+		86B48F3C17FBCDDD0003EA5F /* WOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOPlayer.h; sourceTree = "<group>"; };
+		86B48F3D17FBCDDD0003EA5F /* WOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOPlayer.m; sourceTree = "<group>"; };
+		86B48F4217FBCDFB0003EA5F /* WOWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWorld.h; sourceTree = "<group>"; };
+		86B48F4317FBCDFB0003EA5F /* WOWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWorld.m; sourceTree = "<group>"; };
 		86C5DC5317FBCA8E005F6AEA /* World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = World.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C5DC5617FBCA8E005F6AEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86C5DC5817FBCA8E005F6AEA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +84,6 @@
 		86C5DC6B17FBCA8E005F6AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86C5DC6D17FBCA8E005F6AEA /* WOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WOViewController.h; sourceTree = "<group>"; };
 		86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WOViewController.m; sourceTree = "<group>"; };
-		86C5DC7017FBCA8E005F6AEA /* WOMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WOMyScene.h; sourceTree = "<group>"; };
-		86C5DC7117FBCA8E005F6AEA /* WOMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WOMyScene.m; sourceTree = "<group>"; };
 		86C5DC7317FBCA8E005F6AEA /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		86C5DC7517FBCA8E005F6AEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		86C5DC7B17FBCA8F005F6AEA /* WorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +91,14 @@
 		86C5DC8417FBCA8F005F6AEA /* WorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldTests-Info.plist"; sourceTree = "<group>"; };
 		86C5DC8617FBCA8F005F6AEA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86C5DC8817FBCA8F005F6AEA /* WorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldTests.m; sourceTree = "<group>"; };
+		86ECED8817FE2DB100055C5B /* WONoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WONoise.h; sourceTree = "<group>"; };
+		86ECED8917FE2DB100055C5B /* WONoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WONoise.m; sourceTree = "<group>"; };
+		86ECED8C17FE2DCB00055C5B /* WONoiseTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WONoiseTemperature.h; sourceTree = "<group>"; };
+		86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WONoiseTemperature.m; sourceTree = "<group>"; };
+		86F5DD3F17FE8AE7002AA056 /* JCMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMath.h; sourceTree = "<group>"; };
+		86F5DD4017FE8AE7002AA056 /* JCMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMath.m; sourceTree = "<group>"; };
+		86F99C1717FE79F8002DEFB7 /* WOWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWall.h; sourceTree = "<group>"; };
+		86F99C1817FE79F8002DEFB7 /* WOWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWall.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +126,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8682452417FBCF9C00FAB77D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86B48F4217FBCDFB0003EA5F /* WOWorld.h */,
+				86B48F4317FBCDFB0003EA5F /* WOWorld.m */,
+				8682452B17FBD4CC00FAB77D /* WOChunk.h */,
+				8682452C17FBD4CC00FAB77D /* WOChunk.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		86B48F2B17FBCD200003EA5F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				86B48F2C17FBCD410003EA5F /* WOWorldScene.h */,
+				86B48F2D17FBCD410003EA5F /* WOWorldScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		86B48F4117FBCDE10003EA5F /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				86B48F3A17FBCDDD0003EA5F /* WOObject.h */,
+				86B48F3B17FBCDDD0003EA5F /* WOObject.m */,
+				86B48F3817FBCDDD0003EA5F /* WOCharacter.h */,
+				86B48F3917FBCDDD0003EA5F /* WOCharacter.m */,
+				86B48F3C17FBCDDD0003EA5F /* WOPlayer.h */,
+				86B48F3D17FBCDDD0003EA5F /* WOPlayer.m */,
+				863E72BB17FE21D3006BB7AC /* WOPlant.h */,
+				863E72BC17FE21D3006BB7AC /* WOPlant.m */,
+				8639E03A17FE274A004D75C8 /* WOFloor.h */,
+				8639E03B17FE274A004D75C8 /* WOFloor.m */,
+				86F99C1717FE79F8002DEFB7 /* WOWall.h */,
+				86F99C1817FE79F8002DEFB7 /* WOWall.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		86C5DC4A17FBCA8E005F6AEA = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +187,12 @@
 		86C5DC5517FBCA8E005F6AEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86F5DD3F17FE8AE7002AA056 /* JCMath.h */,
+				86F5DD4017FE8AE7002AA056 /* JCMath.m */,
+				8682452517FBD0D100FAB77D /* JCControlPad.h */,
+				8682452617FBD0D100FAB77D /* JCControlPad.m */,
+				86B48F3517FBCDBE0003EA5F /* PerlinNoise.h */,
+				86B48F3617FBCDBE0003EA5F /* PerlinNoise.m */,
 				86C5DC5617FBCA8E005F6AEA /* Foundation.framework */,
 				86C5DC5817FBCA8E005F6AEA /* CoreGraphics.framework */,
 				86C5DC5A17FBCA8E005F6AEA /* UIKit.framework */,
@@ -126,8 +210,10 @@
 				86C5DC6A17FBCA8E005F6AEA /* Main.storyboard */,
 				86C5DC6D17FBCA8E005F6AEA /* WOViewController.h */,
 				86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */,
-				86C5DC7017FBCA8E005F6AEA /* WOMyScene.h */,
-				86C5DC7117FBCA8E005F6AEA /* WOMyScene.m */,
+				8682452417FBCF9C00FAB77D /* Controllers */,
+				86B48F4117FBCDE10003EA5F /* Objects */,
+				86B48F2B17FBCD200003EA5F /* Scenes */,
+				86ECED8B17FE2DB500055C5B /* Noise */,
 				86C5DC7317FBCA8E005F6AEA /* Spaceship.png */,
 				86C5DC7517FBCA8E005F6AEA /* Images.xcassets */,
 				86C5DC5F17FBCA8E005F6AEA /* Supporting Files */,
@@ -162,6 +248,17 @@
 				86C5DC8517FBCA8F005F6AEA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86ECED8B17FE2DB500055C5B /* Noise */ = {
+			isa = PBXGroup;
+			children = (
+				86ECED8817FE2DB100055C5B /* WONoise.h */,
+				86ECED8917FE2DB100055C5B /* WONoise.m */,
+				86ECED8C17FE2DCB00055C5B /* WONoiseTemperature.h */,
+				86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */,
+			);
+			name = Noise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +360,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C5DC7217FBCA8E005F6AEA /* WOMyScene.m in Sources */,
+				86B48F4417FBCDFB0003EA5F /* WOWorld.m in Sources */,
+				86F5DD4117FE8AE7002AA056 /* JCMath.m in Sources */,
+				86ECED8E17FE2DCB00055C5B /* WONoiseTemperature.m in Sources */,
+				86B48F3E17FBCDDD0003EA5F /* WOCharacter.m in Sources */,
+				863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */,
+				86B48F4017FBCDDD0003EA5F /* WOPlayer.m in Sources */,
+				8682452D17FBD4CC00FAB77D /* WOChunk.m in Sources */,
 				86C5DC6917FBCA8E005F6AEA /* WOAppDelegate.m in Sources */,
+				86B48F2E17FBCD410003EA5F /* WOWorldScene.m in Sources */,
+				86B48F3717FBCDBE0003EA5F /* PerlinNoise.m in Sources */,
+				8682452917FBD0D100FAB77D /* JCControlPad.m in Sources */,
+				8639E03C17FE274A004D75C8 /* WOFloor.m in Sources */,
+				86B48F3F17FBCDDD0003EA5F /* WOObject.m in Sources */,
+				86ECED8A17FE2DB100055C5B /* WONoise.m in Sources */,
 				86C5DC6517FBCA8E005F6AEA /* main.m in Sources */,
 				86C5DC6F17FBCA8E005F6AEA /* WOViewController.m in Sources */,
+				86F99C1917FE79F8002DEFB7 /* WOWall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +587,7 @@
 				86C5DC8E17FBCA8F005F6AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86C5DC8F17FBCA8F005F6AEA /* Build configuration list for PBXNativeTarget "WorldTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +596,7 @@
 				86C5DC9117FBCA8F005F6AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
