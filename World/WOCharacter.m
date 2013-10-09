@@ -8,7 +8,12 @@
 
 #import "WOCharacter.h"
 
+#import "WONoiseTemperature.h"
+
 @implementation WOCharacter
+{
+    float footstepTimer;
+}
 
 -(id)initWithSize:(CGSize)size
 {
@@ -27,21 +32,31 @@
 
 -(void)runInDirection:(float)direction intensity:(float)intensity
 {
-    intensity *= 800;
-    
-//    float degrees = direction * 180/M_PI;
-//    
-//    float sectioned = round(degrees / 45) * 45;
-//    
-//    direction = sectioned * M_PI/180;
-    
-    CGVector force = CGVectorMake(cosf(direction) * intensity, sinf(direction) * intensity);
-    
-    //self.position = CGPointMake(self.position.x + force.dx, self.position.y + force.dy);
-    
-    self.physicsBody.velocity = CGVectorMake(force.dx, force.dy);
+    CGVector force = CGVectorMake(cosf(direction) * intensity * 200, sinf(direction) * intensity * 200);
     
     self.xScale = force.dx > 0 ? 1 : -1;
+    
+    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx + force.dx/6, self.physicsBody.velocity.dy + force.dy/6);
+    
+    footstepTimer += intensity;
+    
+    if (footstepTimer > 20){
+        footstepTimer = 1;
+        
+        self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx + force.dx, self.physicsBody.velocity.dy + force.dy);
+        
+        NSString *substance = @"stone";
+        
+        if ([WONoiseTemperature perlinGlobalValueAtPoint:self.position] > 0) {
+            substance = @"leaf";
+        }
+        
+        SKAction *playSound = [SKAction playSoundFileNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] waitForCompletion:NO];
+        
+        [self runAction:playSound];
+        
+        NSLog(@"PLAYING STEP");
+    }
 }
 
 -(void)jump

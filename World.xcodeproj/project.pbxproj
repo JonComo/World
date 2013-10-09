@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		8639E03C17FE274A004D75C8 /* WOFloor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8639E03B17FE274A004D75C8 /* WOFloor.m */; };
 		863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E72BC17FE21D3006BB7AC /* WOPlant.m */; };
+		867B658E180544A200219E61 /* stone0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B658A180544A200219E61 /* stone0.caf */; };
+		867B658F180544A200219E61 /* stone1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B658B180544A200219E61 /* stone1.caf */; };
+		867B6590180544A200219E61 /* stone2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B658C180544A200219E61 /* stone2.caf */; };
+		867B6591180544A200219E61 /* stone3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B658D180544A200219E61 /* stone3.caf */; };
+		867B6596180545C000219E61 /* leaf0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B6592180545C000219E61 /* leaf0.caf */; };
+		867B6597180545C000219E61 /* leaf1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B6593180545C000219E61 /* leaf1.caf */; };
+		867B6598180545C000219E61 /* leaf2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B6594180545C000219E61 /* leaf2.caf */; };
+		867B6599180545C000219E61 /* leaf3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B6595180545C000219E61 /* leaf3.caf */; };
+		867B659C18054A1E00219E61 /* WOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 867B659B18054A1E00219E61 /* WOAI.m */; };
+		867B65A018054B4600219E61 /* WOScrounger.m in Sources */ = {isa = PBXBuildFile; fileRef = 867B659F18054B4600219E61 /* WOScrounger.m */; };
 		8682452917FBD0D100FAB77D /* JCControlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452617FBD0D100FAB77D /* JCControlPad.m */; };
 		8682452D17FBD4CC00FAB77D /* WOChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452C17FBD4CC00FAB77D /* WOChunk.m */; };
 		86B48F2E17FBCD410003EA5F /* WOWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F2D17FBCD410003EA5F /* WOWorldScene.m */; };
@@ -26,7 +36,6 @@
 		86C5DC6917FBCA8E005F6AEA /* WOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC6817FBCA8E005F6AEA /* WOAppDelegate.m */; };
 		86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC6A17FBCA8E005F6AEA /* Main.storyboard */; };
 		86C5DC6F17FBCA8E005F6AEA /* WOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */; };
-		86C5DC7417FBCA8E005F6AEA /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC7317FBCA8E005F6AEA /* Spaceship.png */; };
 		86C5DC7617FBCA8E005F6AEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC7517FBCA8E005F6AEA /* Images.xcassets */; };
 		86C5DC7D17FBCA8F005F6AEA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC7C17FBCA8F005F6AEA /* XCTest.framework */; };
 		86C5DC7E17FBCA8F005F6AEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C5DC5617FBCA8E005F6AEA /* Foundation.framework */; };
@@ -54,6 +63,18 @@
 		8639E03B17FE274A004D75C8 /* WOFloor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOFloor.m; sourceTree = "<group>"; };
 		863E72BB17FE21D3006BB7AC /* WOPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOPlant.h; sourceTree = "<group>"; };
 		863E72BC17FE21D3006BB7AC /* WOPlant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOPlant.m; sourceTree = "<group>"; };
+		867B658A180544A200219E61 /* stone0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone0.caf; sourceTree = "<group>"; };
+		867B658B180544A200219E61 /* stone1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone1.caf; sourceTree = "<group>"; };
+		867B658C180544A200219E61 /* stone2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone2.caf; sourceTree = "<group>"; };
+		867B658D180544A200219E61 /* stone3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone3.caf; sourceTree = "<group>"; };
+		867B6592180545C000219E61 /* leaf0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = leaf0.caf; sourceTree = "<group>"; };
+		867B6593180545C000219E61 /* leaf1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = leaf1.caf; sourceTree = "<group>"; };
+		867B6594180545C000219E61 /* leaf2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = leaf2.caf; sourceTree = "<group>"; };
+		867B6595180545C000219E61 /* leaf3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = leaf3.caf; sourceTree = "<group>"; };
+		867B659A18054A1E00219E61 /* WOAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOAI.h; sourceTree = "<group>"; };
+		867B659B18054A1E00219E61 /* WOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOAI.m; sourceTree = "<group>"; };
+		867B659E18054B4600219E61 /* WOScrounger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOScrounger.h; sourceTree = "<group>"; };
+		867B659F18054B4600219E61 /* WOScrounger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOScrounger.m; sourceTree = "<group>"; };
 		8682452517FBD0D100FAB77D /* JCControlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCControlPad.h; sourceTree = "<group>"; };
 		8682452617FBD0D100FAB77D /* JCControlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCControlPad.m; sourceTree = "<group>"; };
 		8682452B17FBD4CC00FAB77D /* WOChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOChunk.h; sourceTree = "<group>"; };
@@ -84,7 +105,6 @@
 		86C5DC6B17FBCA8E005F6AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86C5DC6D17FBCA8E005F6AEA /* WOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WOViewController.h; sourceTree = "<group>"; };
 		86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WOViewController.m; sourceTree = "<group>"; };
-		86C5DC7317FBCA8E005F6AEA /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		86C5DC7517FBCA8E005F6AEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		86C5DC7B17FBCA8F005F6AEA /* WorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C5DC7C17FBCA8F005F6AEA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -126,6 +146,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		867B657818053F3500219E61 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				867B657918053F3500219E61 /* effects */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		867B657918053F3500219E61 /* effects */ = {
+			isa = PBXGroup;
+			children = (
+				867B6592180545C000219E61 /* leaf0.caf */,
+				867B6593180545C000219E61 /* leaf1.caf */,
+				867B6594180545C000219E61 /* leaf2.caf */,
+				867B6595180545C000219E61 /* leaf3.caf */,
+				867B658A180544A200219E61 /* stone0.caf */,
+				867B658B180544A200219E61 /* stone1.caf */,
+				867B658C180544A200219E61 /* stone2.caf */,
+				867B658D180544A200219E61 /* stone3.caf */,
+			);
+			path = effects;
+			sourceTree = "<group>";
+		};
+		867B659D18054A2400219E61 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				867B659A18054A1E00219E61 /* WOAI.h */,
+				867B659B18054A1E00219E61 /* WOAI.m */,
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
 		8682452417FBCF9C00FAB77D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +213,8 @@
 				8639E03B17FE274A004D75C8 /* WOFloor.m */,
 				86F99C1717FE79F8002DEFB7 /* WOWall.h */,
 				86F99C1817FE79F8002DEFB7 /* WOWall.m */,
+				867B659E18054B4600219E61 /* WOScrounger.h */,
+				867B659F18054B4600219E61 /* WOScrounger.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -210,11 +264,12 @@
 				86C5DC6A17FBCA8E005F6AEA /* Main.storyboard */,
 				86C5DC6D17FBCA8E005F6AEA /* WOViewController.h */,
 				86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */,
+				867B657818053F3500219E61 /* sounds */,
 				8682452417FBCF9C00FAB77D /* Controllers */,
 				86B48F4117FBCDE10003EA5F /* Objects */,
 				86B48F2B17FBCD200003EA5F /* Scenes */,
 				86ECED8B17FE2DB500055C5B /* Noise */,
-				86C5DC7317FBCA8E005F6AEA /* Spaceship.png */,
+				867B659D18054A2400219E61 /* AI */,
 				86C5DC7517FBCA8E005F6AEA /* Images.xcassets */,
 				86C5DC5F17FBCA8E005F6AEA /* Supporting Files */,
 			);
@@ -338,10 +393,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867B6590180544A200219E61 /* stone2.caf in Resources */,
+				867B6596180545C000219E61 /* leaf0.caf in Resources */,
+				867B6597180545C000219E61 /* leaf1.caf in Resources */,
+				867B6599180545C000219E61 /* leaf3.caf in Resources */,
 				86C5DC6317FBCA8E005F6AEA /* InfoPlist.strings in Resources */,
 				86C5DC7617FBCA8E005F6AEA /* Images.xcassets in Resources */,
-				86C5DC7417FBCA8E005F6AEA /* Spaceship.png in Resources */,
+				867B6598180545C000219E61 /* leaf2.caf in Resources */,
+				867B658F180544A200219E61 /* stone1.caf in Resources */,
 				86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */,
+				867B6591180544A200219E61 /* stone3.caf in Resources */,
+				867B658E180544A200219E61 /* stone0.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,8 +423,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86B48F4417FBCDFB0003EA5F /* WOWorld.m in Sources */,
+				867B65A018054B4600219E61 /* WOScrounger.m in Sources */,
 				86F5DD4117FE8AE7002AA056 /* JCMath.m in Sources */,
 				86ECED8E17FE2DCB00055C5B /* WONoiseTemperature.m in Sources */,
+				867B659C18054A1E00219E61 /* WOAI.m in Sources */,
 				86B48F3E17FBCDDD0003EA5F /* WOCharacter.m in Sources */,
 				863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */,
 				86B48F4017FBCDDD0003EA5F /* WOPlayer.m in Sources */,

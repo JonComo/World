@@ -13,6 +13,7 @@
 #import "WOFloor.h"
 #import "WOPlant.h"
 #import "WOWall.h"
+#import "WOScrounger.h"
 
 static WOWorld *sharedWorld;
 
@@ -50,7 +51,10 @@ static WOWorld *sharedWorld;
 
 -(void)update:(NSTimeInterval)currentTime
 {
-    [self.player update:currentTime];
+    for (WOObject *object in self.children){
+        if ([object isKindOfClass:[WOObject class]]) [object update:currentTime];
+    }
+    
     [self updateChunks:currentTime];
 }
 
@@ -119,13 +123,17 @@ static WOWorld *sharedWorld;
     for (WOObject *tile in tiles)
         [floorTiles addChild:tile];
     
+    NSArray *walls = [WOWall objectsInChunk:chunk];
+    for (WOObject *wall in walls)
+        [self addChild:wall];
+    
     NSArray *plants = [WOPlant objectsInChunk:chunk];
     for (WOObject *plant in plants)
         [self addChild:plant];
     
-    NSArray *walls = [WOWall objectsInChunk:chunk];
-    for (WOObject *wall in walls)
-        [self addChild:wall];
+    NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
+    for (WOObject *scrounger in scroungers)
+        [self addChild:scrounger];
     
     [self insertChild:self.player atIndex:0];
 }

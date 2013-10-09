@@ -15,8 +15,8 @@
     if (!noise)
     {
         noise = [[PerlinNoise alloc] initWithSeed:[WONoise seed]];
-        noise.octaves = 2;
-        noise.frequency = 0.05;
+        noise.octaves = 1;
+        noise.frequency = 0.01;
     }
     
     return noise;
