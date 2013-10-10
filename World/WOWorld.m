@@ -15,12 +15,20 @@
 #import "WOWall.h"
 #import "WOScrounger.h"
 
+#import "WOWeatherManager.h"
+
+#import "WONoiseTemperature.h"
+
 static WOWorld *sharedWorld;
 
 @implementation WOWorld
 {
     NSMutableArray *chunks;
+    
     SKSpriteNode *floorTiles;
+    SKSpriteNode *scene;
+    
+    WOWeatherManager *weatherManager;
 }
 
 +(WOWorld *)sharedWorld
@@ -39,9 +47,15 @@ static WOWorld *sharedWorld;
         floorTiles = [[SKSpriteNode alloc] init];
         [self addChild:floorTiles];
         
-        _player = [[WOPlayer alloc] initWithSize:CGSizeMake(objectSize.width/2, objectSize.height/2)];
+        scene = [SKSpriteNode node];
+        [self addChild:scene];
+        
+        _player = [[WOPlayer alloc] initWithSize:CGSizeMake(objectSize.width * 3/4, objectSize.height * 3/4)];
         _player.position = CGPointMake(0, 0);
-        [self addChild:_player];
+        [scene addChild:_player];
+        
+        weatherManager = [[WOWeatherManager alloc] initWithSize:self.size target:_player];
+        [self addChild:weatherManager];
     }
     
     sharedWorld = self;
@@ -51,23 +65,29 @@ static WOWorld *sharedWorld;
 
 -(void)update:(NSTimeInterval)currentTime
 {
-    for (WOObject *object in self.children){
+    for (WOObject *object in scene.children){
         if ([object isKindOfClass:[WOObject class]]) [object update:currentTime];
     }
     
+    float playerTemp = [WONoiseTemperature perlinGlobalValueAtPoint:self.player.position];
+    weatherManager.tempurature = playerTemp;
+    
     [self updateChunks:currentTime];
+    
+    [weatherManager update:currentTime];
 }
 
 -(void)didSimulatePhysics
 {
-    self.position = CGPointMake(- self.player.position.x + self.size.width/2, - self.player.position.y + self.size.height/2);
+    CGPoint targetPoint = CGPointMake(- self.player.position.x + self.size.width/2, - self.player.position.y + self.size.height/2);
+    self.position = CGPointMake(self.position.x - (self.position.x - targetPoint.x)/3, self.position.y - (self.position.y - targetPoint.y)/3);
 }
 
 -(void)updateChunks:(NSTimeInterval)currentTime
 {
     CGPoint playerCoordinates = [self.player coordinates];
     
-    for (int x = -2; x<4; x++) {
+    for (int x = -3; x<4; x++) {
         for (int y = -2; y<4; y++) {
             CGPoint testCoords = CGPointMake(x + playerCoordinates.x, y + playerCoordinates.y);
             
@@ -125,17 +145,17 @@ static WOWorld *sharedWorld;
     
     NSArray *walls = [WOWall objectsInChunk:chunk];
     for (WOObject *wall in walls)
-        [self addChild:wall];
+        [scene addChild:wall];
     
     NSArray *plants = [WOPlant objectsInChunk:chunk];
     for (WOObject *plant in plants)
-        [self addChild:plant];
+        [scene addChild:plant];
     
     NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
     for (WOObject *scrounger in scroungers)
-        [self addChild:scrounger];
+        [scene addChild:scrounger];
     
-    [self insertChild:self.player atIndex:0];
+    [scene insertChild:self.player atIndex:0];
 }
 
 @end

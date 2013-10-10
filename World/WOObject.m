@@ -13,14 +13,7 @@
 
 #import "JCMath.h"
 
-static int seed;
-
 @implementation WOObject
-
-+(void)initialize
-{
-    seed = 0;
-}
 
 -(id)initWithSize:(CGSize)size
 {
@@ -72,6 +65,11 @@ static int seed;
     
     if (self.parent)
         [self removeFromParent];
+}
+
+-(void)renderTexture
+{
+    
 }
 
 @end

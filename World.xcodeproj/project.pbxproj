@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8606EE6018067B690031EB1C /* particleSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8606EE5E18067B690031EB1C /* particleSnow.sks */; };
+		8606EE661806835A0031EB1C /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8606EE651806835A0031EB1C /* snow.png */; };
+		8606EE69180692120031EB1C /* WOWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8606EE68180692120031EB1C /* WOWeatherManager.m */; };
 		8639E03C17FE274A004D75C8 /* WOFloor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8639E03B17FE274A004D75C8 /* WOFloor.m */; };
 		863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E72BC17FE21D3006BB7AC /* WOPlant.m */; };
 		867B658E180544A200219E61 /* stone0.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B658A180544A200219E61 /* stone0.caf */; };
@@ -59,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8606EE5E18067B690031EB1C /* particleSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleSnow.sks; sourceTree = "<group>"; };
+		8606EE651806835A0031EB1C /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		8606EE67180692120031EB1C /* WOWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWeatherManager.h; sourceTree = "<group>"; };
+		8606EE68180692120031EB1C /* WOWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWeatherManager.m; sourceTree = "<group>"; };
 		8639E03A17FE274A004D75C8 /* WOFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOFloor.h; sourceTree = "<group>"; };
 		8639E03B17FE274A004D75C8 /* WOFloor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOFloor.m; sourceTree = "<group>"; };
 		863E72BB17FE21D3006BB7AC /* WOPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOPlant.h; sourceTree = "<group>"; };
@@ -146,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8606EE621806825B0031EB1C /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				8606EE651806835A0031EB1C /* snow.png */,
+				8606EE5E18067B690031EB1C /* particleSnow.sks */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		867B657818053F3500219E61 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +231,8 @@
 				86F99C1817FE79F8002DEFB7 /* WOWall.m */,
 				867B659E18054B4600219E61 /* WOScrounger.h */,
 				867B659F18054B4600219E61 /* WOScrounger.m */,
+				8606EE67180692120031EB1C /* WOWeatherManager.h */,
+				8606EE68180692120031EB1C /* WOWeatherManager.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -270,6 +288,7 @@
 				86B48F2B17FBCD200003EA5F /* Scenes */,
 				86ECED8B17FE2DB500055C5B /* Noise */,
 				867B659D18054A2400219E61 /* AI */,
+				8606EE621806825B0031EB1C /* Particles */,
 				86C5DC7517FBCA8E005F6AEA /* Images.xcassets */,
 				86C5DC5F17FBCA8E005F6AEA /* Supporting Files */,
 			);
@@ -402,6 +421,8 @@
 				867B6598180545C000219E61 /* leaf2.caf in Resources */,
 				867B658F180544A200219E61 /* stone1.caf in Resources */,
 				86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */,
+				8606EE661806835A0031EB1C /* snow.png in Resources */,
+				8606EE6018067B690031EB1C /* particleSnow.sks in Resources */,
 				867B6591180544A200219E61 /* stone3.caf in Resources */,
 				867B658E180544A200219E61 /* stone0.caf in Resources */,
 			);
@@ -440,6 +461,7 @@
 				86ECED8A17FE2DB100055C5B /* WONoise.m in Sources */,
 				86C5DC6517FBCA8E005F6AEA /* main.m in Sources */,
 				86C5DC6F17FBCA8E005F6AEA /* WOViewController.m in Sources */,
+				8606EE69180692120031EB1C /* WOWeatherManager.m in Sources */,
 				86F99C1917FE79F8002DEFB7 /* WOWall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

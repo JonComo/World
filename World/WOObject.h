@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *managedObjects;
 
 -(id)initWithSize:(CGSize)size;
+-(void)renderTexture;
 -(void)update:(NSTimeInterval)currentTime;
 -(void)didSimulatePhysics;
 

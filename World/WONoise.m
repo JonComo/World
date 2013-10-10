@@ -14,7 +14,7 @@ static int seed;
 
 +(void)initialize
 {
-    seed = 0;
+    seed = arc4random();
 }
 
 +(int)seed

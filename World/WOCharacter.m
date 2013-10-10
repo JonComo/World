@@ -20,6 +20,7 @@
     if (self = [super initWithSize:size]) {
         //init
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+        [self.physicsBody setAllowsRotation:NO];
     }
     
     return self;
@@ -40,7 +41,7 @@
     
     footstepTimer += intensity;
     
-    if (footstepTimer > 20){
+    if (footstepTimer > 25){
         footstepTimer = 1;
         
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx + force.dx, self.physicsBody.velocity.dy + force.dy);
@@ -51,11 +52,9 @@
             substance = @"leaf";
         }
         
-        SKAction *playSound = [SKAction playSoundFileNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] waitForCompletion:NO];
+        SKAction *walk = [SKAction sequence:@[[SKAction moveBy:CGVectorMake(0, -6) duration:0.2],[SKAction playSoundFileNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] waitForCompletion:NO], [SKAction moveBy:CGVectorMake(0, 6) duration:0.3]]];
         
-        [self runAction:playSound];
-        
-        NSLog(@"PLAYING STEP");
+        [self runAction:walk];
     }
 }
 
