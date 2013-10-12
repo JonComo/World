@@ -29,6 +29,8 @@ static WOWorld *sharedWorld;
     SKSpriteNode *scene;
     
     WOWeatherManager *weatherManager;
+    
+    __block BOOL isCalculatingChunk;
 }
 
 +(WOWorld *)sharedWorld
@@ -40,6 +42,8 @@ static WOWorld *sharedWorld;
 {
     if (self = [super initWithSize:size]) {
         //init
+        isCalculatingChunk = NO;
+        
         self.color = [UIColor grayColor];
         
         chunks = [NSMutableArray array];
@@ -80,21 +84,30 @@ static WOWorld *sharedWorld;
 -(void)didSimulatePhysics
 {
     CGPoint targetPoint = CGPointMake(- self.player.position.x + self.size.width/2, - self.player.position.y + self.size.height/2);
-    self.position = CGPointMake(self.position.x - (self.position.x - targetPoint.x)/3, self.position.y - (self.position.y - targetPoint.y)/3);
+    self.position = CGPointMake((int) (self.position.x - (self.position.x - targetPoint.x)/3), (int)(self.position.y - (self.position.y - targetPoint.y)/3));
 }
 
 -(void)updateChunks:(NSTimeInterval)currentTime
 {
+    if (isCalculatingChunk) return;
+    
     CGPoint playerCoordinates = [self.player coordinates];
     
     for (int x = -3; x<4; x++) {
         for (int y = -2; y<4; y++) {
+            
+            if (isCalculatingChunk) return;
+            
             CGPoint testCoords = CGPointMake(x + playerCoordinates.x, y + playerCoordinates.y);
             
             WOChunk *chunk = [self chunkAtCoordinates:testCoords];
             
             if (!chunk){
-                [self createChunkAtCoordinates:testCoords];
+                isCalculatingChunk = YES;
+                
+                [self createChunkAtCoordinates:testCoords completion:^{
+                    isCalculatingChunk = NO;
+                }];
             }
         }
     }
@@ -131,31 +144,46 @@ static WOWorld *sharedWorld;
     return nil;
 }
 
--(void)createChunkAtCoordinates:(CGPoint)coordinates
+-(void)createChunkAtCoordinates:(CGPoint)coordinates completion:(void(^)(void))block
 {
-    WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize coordinates:coordinates];
-    [chunks addObject:chunk];
-    
-    chunk.position = CGPointMake(chunk.coordinates.x * chunkSize.width, chunk.coordinates.y * chunkSize.height);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize coordinates:coordinates];
         
-    //Add floor tiles
-    NSArray *tiles = [WOFloor objectsInChunk:chunk];
-    for (WOObject *tile in tiles)
-        [floorTiles addChild:tile];
-    
-    NSArray *walls = [WOWall objectsInChunk:chunk];
-    for (WOObject *wall in walls)
-        [scene addChild:wall];
-    
-    NSArray *plants = [WOPlant objectsInChunk:chunk];
-    for (WOObject *plant in plants)
-        [scene addChild:plant];
-    
-    NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
-    for (WOObject *scrounger in scroungers)
-        [scene addChild:scrounger];
-    
-    [scene insertChild:self.player atIndex:0];
+        chunk.position = CGPointMake(chunk.coordinates.x * chunkSize.width, chunk.coordinates.y * chunkSize.height);
+        
+        //Add floor tiles
+        NSArray *tiles = [WOFloor objectsInChunk:chunk];
+        
+        
+        NSArray *walls = [WOWall objectsInChunk:chunk];
+        
+        
+        NSArray *plants = [WOPlant objectsInChunk:chunk];
+        
+        
+        NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [chunks addObject:chunk];
+            
+            for (WOObject *tile in tiles)
+                [floorTiles addChild:tile];
+            
+            for (WOObject *scrounger in scroungers)
+                [scene addChild:scrounger];
+            
+            for (WOObject *plant in plants)
+                [scene addChild:plant];
+            
+            for (WOObject *wall in walls)
+                [scene addChild:wall];
+            
+            [scene insertChild:self.player atIndex:0];
+            
+            if (block) block();
+        });
+    });
 }
 
 @end

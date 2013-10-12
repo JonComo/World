@@ -64,7 +64,7 @@
         
         float tempLevel = [WONoiseTemperature perlinGlobalValueAtPoint:position];
         
-        if (tempLevel < -0.1 && arc4random()%20 == 0){
+        if (tempLevel > 0 && arc4random()%80 == 0){
             WOScrounger *scrounger = [[WOScrounger alloc] initWithSize:CGSizeMake(objectSize.width/2, objectSize.height/2)];
             
             scrounger.position = position;

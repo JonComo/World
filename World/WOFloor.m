@@ -13,6 +13,8 @@
 
 #import "WONoiseTemperature.h"
 
+#import "SKTexture+Utility.h"
+
 #import "JCMath.h"
 
 @implementation WOFloor
@@ -47,7 +49,13 @@
             WOObject *floorTile = [[WOObject alloc] initWithSize:tileSize];
             floorTile.position = tilePosition;
             
+            SKTexture *baseTexture = [SKTexture textureWithImageNamed: perlinValue < 0 ? @"stone" : @"leaf"];
+            baseTexture.filteringMode = SKTextureFilteringNearest;
             
+            floorTile.texture = [SKTexture textureWithRandomSubRectOfSize:CGSizeMake(8, 8) ofTexture:baseTexture];
+            
+            floorTile.texture.filteringMode = SKTextureFilteringNearest;
+            floorTile.colorBlendFactor = 0.6;
             
             floorTile.color = [UIColor colorWithRed:0.5 + perlinValue * 3 green:0.5 + perlinValue * 2 blue:0.5 alpha:1];
             

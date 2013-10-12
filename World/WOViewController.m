@@ -10,18 +10,20 @@
 #import "WOWorldScene.h"
 
 @implementation WOViewController
+{
+    __weak IBOutlet SKView *skView;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [WOWorldScene sceneWithSize:CGSizeMake(skView.bounds.size.height, skView.bounds.size.width)];
+    SKScene * scene = [WOWorldScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFit;
     
     // Present the scene.
@@ -32,6 +34,15 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
