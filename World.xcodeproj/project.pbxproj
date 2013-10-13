@@ -114,6 +114,7 @@
 		86B48F3D17FBCDDD0003EA5F /* WOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOPlayer.m; sourceTree = "<group>"; };
 		86B48F4217FBCDFB0003EA5F /* WOWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWorld.h; sourceTree = "<group>"; };
 		86B48F4317FBCDFB0003EA5F /* WOWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWorld.m; sourceTree = "<group>"; };
+		86B48FF7180A83A4000582B9 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		86C5DC5317FBCA8E005F6AEA /* World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = World.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C5DC5617FBCA8E005F6AEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86C5DC5817FBCA8E005F6AEA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,7 +248,7 @@
 			name = AI;
 			sourceTree = "<group>";
 		};
-		8682452417FBCF9C00FAB77D /* Game Logic Controllers */ = {
+		8682452417FBCF9C00FAB77D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				86B48F4217FBCDFB0003EA5F /* WOWorld.h */,
@@ -255,7 +256,7 @@
 				8682452B17FBD4CC00FAB77D /* WOChunk.h */,
 				8682452C17FBD4CC00FAB77D /* WOChunk.m */,
 			);
-			name = "Game Logic Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		86B48F2B17FBCD200003EA5F /* Scenes */ = {
@@ -312,6 +313,7 @@
 		86C5DC5517FBCA8E005F6AEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86B48FF7180A83A4000582B9 /* Macros.h */,
 				8677617D18091E1100585E71 /* RRAudioEngine.h */,
 				8677617E18091E1100585E71 /* RRAudioEngine.m */,
 				8677617F18091E1100585E71 /* RRAudioPlayer.h */,
@@ -340,7 +342,7 @@
 				867761951809313D00585E71 /* View */,
 				867761831809212B00585E71 /* media */,
 				867B657818053F3500219E61 /* sounds */,
-				8682452417FBCF9C00FAB77D /* Game Logic Controllers */,
+				8682452417FBCF9C00FAB77D /* Controllers */,
 				86B48F4117FBCDE10003EA5F /* Objects */,
 				86B48F2B17FBCD200003EA5F /* Scenes */,
 				86ECED8B17FE2DB500055C5B /* Noise */,

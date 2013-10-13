@@ -17,6 +17,7 @@ static PerlinNoise *noise;
 @interface WONoise : NSObject
 
 +(int)seed;
++(void)setSeed:(int)newSeed;
 +(PerlinNoise *)noise;
 
 +(float)perlinGlobalValueAtPoint:(CGPoint)point;

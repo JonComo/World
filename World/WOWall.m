@@ -51,7 +51,7 @@
         }
     }];
     
-    [chunk.managedObjects addObjectsFromArray:objects];
+    //[chunk.managedObjects addObjectsFromArray:objects];
     
     return objects;
 }

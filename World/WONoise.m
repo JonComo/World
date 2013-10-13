@@ -22,6 +22,12 @@ static int seed;
     return seed;
 }
 
++(void)setSeed:(int)newSeed
+{
+    seed = newSeed;
+    noise = nil;
+}
+
 +(PerlinNoise *)noise
 {
     if (!noise)

@@ -16,15 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoH-EQ-QVX">
-                                <rect key="frame" x="245" y="270" width="79" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-PJ-ehk">
+                                <rect key="frame" x="240" y="270" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="play seed 0">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="play:" destination="bo3-Ay-JzZ" eventType="touchUpInside" id="CAg-BW-jC4"/>
-                                    <segue destination="LVB-YS-i5n" kind="modal" identifier="play" animates="NO" id="gs6-Fh-S9K"/>
+                                    <action selector="playSeed0:" destination="bo3-Ay-JzZ" eventType="touchUpInside" id="XHW-CL-VpW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AJ-pY-B3B">
+                                <rect key="frame" x="245" y="232" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="rand seed">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playRandomSeed:" destination="bo3-Ay-JzZ" eventType="touchUpInside" id="1f0-qk-RLB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -40,7 +49,7 @@
         <!--View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="WOViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameVC" id="LVB-YS-i5n" customClass="WOViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yVb-Mf-cGt"/>
                         <viewControllerLayoutGuide type="bottom" id="3pw-vM-82v"/>

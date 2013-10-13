@@ -54,9 +54,9 @@
             substance = @"leaf";
         }
         
-        SKAction *walk = [SKAction sequence:@[[SKAction moveBy:CGVectorMake(0, -6) duration:0.2],[SKAction runBlock:^{
-            [[RRAudioEngine sharedEngine] playSoundNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] volume:0.3 loop:NO];
-        }], [SKAction moveBy:CGVectorMake(0, 6) duration:0.3]]];
+        SKAction *walk = [SKAction sequence:@[[SKAction moveBy:CGVectorMake(0, -6) duration:0.2], [SKAction moveBy:CGVectorMake(0, 6) duration:0.3]]];
+        
+        [[RRAudioEngine sharedEngine] playSoundNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] volume:0.3 loop:NO];
         
         [self runAction:walk];
     }
