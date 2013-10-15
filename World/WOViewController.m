@@ -21,6 +21,7 @@
     // Configure the view.
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
     SKScene * scene = [WOWorldScene sceneWithSize:skView.bounds.size];

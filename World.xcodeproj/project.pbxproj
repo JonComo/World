@@ -28,6 +28,7 @@
 		867B6599180545C000219E61 /* leaf3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 867B6595180545C000219E61 /* leaf3.caf */; };
 		867B659C18054A1E00219E61 /* WOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 867B659B18054A1E00219E61 /* WOAI.m */; };
 		867B65A018054B4600219E61 /* WOScrounger.m in Sources */ = {isa = PBXBuildFile; fileRef = 867B659F18054B4600219E61 /* WOScrounger.m */; };
+		867FC72F180CEE8000C5E0BF /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 867FC72E180CEE8000C5E0BF /* test.png */; };
 		8682452917FBD0D100FAB77D /* JCControlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452617FBD0D100FAB77D /* JCControlPad.m */; };
 		8682452D17FBD4CC00FAB77D /* WOChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452C17FBD4CC00FAB77D /* WOChunk.m */; };
 		86B48F2E17FBCD410003EA5F /* WOWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F2D17FBCD410003EA5F /* WOWorldScene.m */; };
@@ -98,6 +99,7 @@
 		867B659B18054A1E00219E61 /* WOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOAI.m; sourceTree = "<group>"; };
 		867B659E18054B4600219E61 /* WOScrounger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOScrounger.h; sourceTree = "<group>"; };
 		867B659F18054B4600219E61 /* WOScrounger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOScrounger.m; sourceTree = "<group>"; };
+		867FC72E180CEE8000C5E0BF /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		8682452517FBD0D100FAB77D /* JCControlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCControlPad.h; sourceTree = "<group>"; };
 		8682452617FBD0D100FAB77D /* JCControlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCControlPad.m; sourceTree = "<group>"; };
 		8682452B17FBD4CC00FAB77D /* WOChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOChunk.h; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		867761841809212B00585E71 /* tiles */ = {
 			isa = PBXGroup;
 			children = (
+				867FC72E180CEE8000C5E0BF /* test.png */,
 				8677619018092A5000585E71 /* leaf.png */,
 				867761851809212B00585E71 /* stone.png */,
 			);
@@ -483,6 +486,7 @@
 				867B658F180544A200219E61 /* stone1.caf in Resources */,
 				86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */,
 				8606EE661806835A0031EB1C /* snow.png in Resources */,
+				867FC72F180CEE8000C5E0BF /* test.png in Resources */,
 				8677619118092A5000585E71 /* leaf.png in Resources */,
 				8606EE6018067B690031EB1C /* particleSnow.sks in Resources */,
 				867B6591180544A200219E61 /* stone3.caf in Resources */,

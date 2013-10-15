@@ -42,8 +42,20 @@
 
 -(CGPoint)coordinates
 {
-    int x = (int)(self.position.x / chunkSize.width);
-    int y = (int)(self.position.y / chunkSize.height);
+    int x = 0;
+    int y = 0;
+    
+    if (self.position.x > 0){
+        x = (int)(self.position.x / chunkSize.width);
+    }else{
+        x = (int)(self.position.x / chunkSize.width) - 1;
+    }
+    
+    if (self.position.y > 0){
+        y = (int)(self.position.y / chunkSize.height);
+    }else{
+        y = (int)(self.position.y / chunkSize.height) - 1;
+    }
     
     return CGPointMake(x, y);
 }

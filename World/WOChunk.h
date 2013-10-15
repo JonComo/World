@@ -8,11 +8,11 @@
 
 #import "WOObject.h"
 
-#define chunkSize CGSizeMake(objectSize.width * 3,objectSize.height * 3)
+#define chunkSize CGSizeMake(objectSize.width * 4,objectSize.height * 4)
 
 @interface WOChunk : WOObject
 
--(id)initWithSize:(CGSize)size coordinates:(CGPoint)coordinates;
+-(id)initWithSize:(CGSize)size;
 -(void)iterateWithTileSize:(CGSize)size block:(void(^)(int x, int y))block;
 
 @end

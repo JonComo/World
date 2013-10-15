@@ -37,8 +37,8 @@
     
     CGSize tileSize = objectSize;
     
-    int numX = chunk.size.width / tileSize.width;
-    int numY = chunk.size.height / tileSize.height;
+    int numX = chunkSize.width / tileSize.width;
+    int numY = chunkSize.height / tileSize.height;
     
     for (int x = 0; x<numX; x++) {
         for (int y = 0; y<numY; y++) {
@@ -48,6 +48,7 @@
             
             WOObject *floorTile = [[WOObject alloc] initWithSize:tileSize];
             floorTile.position = tilePosition;
+            floorTile.zPosition = -100;
             
             SKTexture *baseTexture = [SKTexture textureWithImageNamed: perlinValue < 0 ? @"stone" : @"leaf"];
             baseTexture.filteringMode = SKTextureFilteringNearest;

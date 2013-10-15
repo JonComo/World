@@ -11,23 +11,14 @@
 #import "WOWorld.h"
 
 @implementation WOChunk
-{
-    CGPoint worldCoordinates;
-}
 
--(id)initWithSize:(CGSize)size coordinates:(CGPoint)coordinates
+-(id)initWithSize:(CGSize)size
 {
     if (self = [super initWithSize:size]) {
         //init
-        worldCoordinates = coordinates;
     }
     
     return self;
-}
-
--(CGPoint)coordinates
-{
-    return worldCoordinates;
 }
 
 -(void)iterateWithTileSize:(CGSize)size block:(void (^)(int x, int y))block
