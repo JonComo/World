@@ -17,5 +17,8 @@
 @property (nonatomic, strong) WOPlayer *player;
 
 +(WOWorld *)sharedWorld;
++(int)seed;
+
+-(id)initWithSize:(CGSize)size seed:(int)globalSeed;
 
 @end

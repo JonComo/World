@@ -24,7 +24,8 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [WOWorldScene sceneWithSize:skView.bounds.size];
+    WOWorldScene *scene = [WOWorldScene sceneWithSize:skView.bounds.size];
+    scene.seed = self.seed;
     scene.scaleMode = SKSceneScaleModeAspectFit;
     
     // Present the scene.

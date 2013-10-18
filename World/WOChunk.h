@@ -8,7 +8,7 @@
 
 #import "WOObject.h"
 
-#define chunkSize CGSizeMake(objectSize.width * 4,objectSize.height * 4)
+#define chunkSize CGSizeMake(objectSize.width * 16,objectSize.height * 16)
 
 @interface WOChunk : WOObject
 

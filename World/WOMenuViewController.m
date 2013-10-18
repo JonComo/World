@@ -10,37 +10,15 @@
 
 #import "WOViewController.h"
 
-#import "WONoise.h"
-
 #import "Macros.h"
 
-@interface WOMenuViewController ()
-{
-    BOOL autoShow;
-}
-
-@end
-
 @implementation WOMenuViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    autoShow = YES;
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     [self clearFilesAtPath:DOCUMENTS];
-    
-    if (autoShow)
-        [self play];
-    
-    autoShow = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,19 +37,18 @@
 
 - (IBAction)playSeed0:(id)sender
 {
-    [WONoise setSeed:0];
-    [self play];
+    [self playWithSeed:0];
 }
 
 - (IBAction)playRandomSeed:(id)sender
 {
-    [WONoise setSeed:arc4random()];
-    [self play];
+    [self playWithSeed:arc4random()];
 }
 
--(void)play
+-(void)playWithSeed:(int)seed
 {
     WOViewController *gameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameVC"];
+    gameVC.seed = seed;
     [self presentViewController:gameVC animated:YES completion:nil];
 }
 

@@ -10,4 +10,6 @@
 
 @interface WOWorldScene : SKScene
 
+@property int seed;
+
 @end

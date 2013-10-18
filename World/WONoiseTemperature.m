@@ -8,13 +8,14 @@
 
 #import "WONoiseTemperature.h"
 
+#import "WOWorld.h"
+
 @implementation WONoiseTemperature
 
 +(PerlinNoise *)noise
 {
-    if (!noise)
-    {
-        noise = [[PerlinNoise alloc] initWithSeed:[WONoise seed]];
+    if (!noise){
+        noise = [[PerlinNoise alloc] initWithSeed:[WOWorld seed]];
         noise.octaves = 1;
         noise.frequency = 0.01;
     }

@@ -12,6 +12,8 @@
 
 #define objectSize CGSizeMake(50,50)
 
+static PerlinNoise *classNoise;
+
 @class WOChunk;
 
 @interface WOObject : SKSpriteNode
@@ -28,5 +30,7 @@
 +(NSArray *)objectsInChunk:(WOChunk *)chunk;
 
 -(void)remove;
+
++(PerlinNoise *)classNoise;
 
 @end

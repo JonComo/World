@@ -8,47 +8,16 @@
 
 #import "WONoise.h"
 
-static int seed;
-
 @implementation WONoise
-
-+(void)initialize
-{
-    seed = 0;
-}
-
-+(int)seed
-{
-    return seed;
-}
-
-+(void)setSeed:(int)newSeed
-{
-    seed = newSeed;
-    noise = nil;
-}
-
-+(PerlinNoise *)noise
-{
-    if (!noise)
-    {
-        noise = [[PerlinNoise alloc] initWithSeed:[WONoise seed]];
-        noise.octaves = 1;
-        noise.frequency = 0.01;
-    }
-    
-    return noise;
-}
 
 +(float)perlinGlobalValueAtPoint:(CGPoint)point
 {
-    PerlinNoise *classNoise = [[self class] noise];
-    
-    return [WONoise perlinValueAtPoint:point inNoise:classNoise];
+    return 0; //subclass this method with custom noise for things like temperature etc.
 }
 
 +(float)perlinValueAtPoint:(CGPoint)point inNoise:(PerlinNoise *)inputNoise
 {
+    //Utility method
     return [inputNoise perlin2DValueForPointX:point.x / perlinStep.width + 10000000 y:point.y / perlinStep.height + 10000000];
 }
 

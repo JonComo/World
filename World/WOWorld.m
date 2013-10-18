@@ -22,6 +22,7 @@
 #import "WONoiseTemperature.h"
 
 static WOWorld *sharedWorld;
+static int seed;
 
 @implementation WOWorld
 {
@@ -31,8 +32,7 @@ static WOWorld *sharedWorld;
     
     WOWeatherManager *weatherManager;
     
-    __block BOOL isFindingChunk;
-    __block BOOL isCreatingChunk;
+    BOOL isCreatingChunk;
     NSMutableArray *distantChunks;
     NSArray *archivedChunkFileNames;
 }
@@ -42,12 +42,17 @@ static WOWorld *sharedWorld;
     return sharedWorld;
 }
 
--(id)initWithSize:(CGSize)size
++(int)seed
+{
+    return seed;
+}
+
+-(id)initWithSize:(CGSize)size seed:(int)globalSeed
 {
     if (self = [super initWithSize:size]) {
         //init
-        isFindingChunk = NO;
-        isCreatingChunk = NO;
+        seed = globalSeed;
+        
         distantChunks = [NSMutableArray array];
         
         chunks = [NSMutableArray array];
@@ -63,6 +68,9 @@ static WOWorld *sharedWorld;
         weatherManager = [[WOWeatherManager alloc] initWithSize:self.size target:_player];
         [self addChild:weatherManager];
         weatherManager.zPosition = -100;
+        
+        NSTimer *timerChunks;
+        timerChunks = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateChunks) userInfo:nil repeats:YES];
     }
     
     sharedWorld = self;
@@ -79,10 +87,6 @@ static WOWorld *sharedWorld;
     float playerTemp = [WONoiseTemperature perlinGlobalValueAtPoint:self.player.position];
     weatherManager.tempurature = playerTemp;
     
-    [self updateChunks:currentTime];
-    
-    //NSLog(@"PLAYER: %f %f", self.player.coordinates.x, self.player.coordinates.y);
-    
     [weatherManager update:currentTime];
 }
 
@@ -92,29 +96,28 @@ static WOWorld *sharedWorld;
     self.position = CGPointMake((int) (self.position.x - (self.position.x - targetPoint.x)/3), (int)(self.position.y - (self.position.y - targetPoint.y)/3));
 }
 
--(void)updateChunks:(NSTimeInterval)currentTime
+-(void)updateChunks
 {
     CGPoint playerCoordinates = [self.player coordinates];
     
-    for (int x = -3; x<3; x++) {
-        for (int y = -3; y<3; y++) {
+    for (int x = -2; x<2; x++) {
+        for (int y = -2; y<2; y++) {
+            if (isCreatingChunk) continue;
             
             archivedChunkFileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS error:nil];
             
-            CGPoint testCoords = CGPointMake(x + playerCoordinates.x, y + playerCoordinates.y);
+            CGPoint offsetCoordinates = CGPointMake(x + playerCoordinates.x, y + playerCoordinates.y);
             
-            WOChunk *chunk = [self chunkAtCoordinates:testCoords];
-            
-            if (!chunk){
-                NSLog(@"NO CHUNK AT %.0f %.0f", testCoords.x, testCoords.y);
-                [self createChunkAtCoordinates:testCoords];
-            }
+            isCreatingChunk = YES;
+            [self chunkAtCoordinates:offsetCoordinates completion:^(WOChunk *chunk) {
+                isCreatingChunk = NO;
+            }];
         }
     }
     
     //remove far chunks
     for (WOChunk *chunk in chunks){
-        if (ABS(playerCoordinates.x - chunk.coordinates.x) > 4 || ABS(playerCoordinates.y - chunk.coordinates.y) > 4){
+        if (ABS(playerCoordinates.x - chunk.coordinates.x) > 3 || ABS(playerCoordinates.y - chunk.coordinates.y) > 3){
             [distantChunks addObject:chunk];
         }
     }
@@ -133,15 +136,120 @@ static WOWorld *sharedWorld;
     [distantChunks removeAllObjects];
 }
 
--(WOChunk *)chunkAtCoordinates:(CGPoint)coordinates
+-(void)chunkAtCoordinates:(CGPoint)coordinates completion:(void(^)(WOChunk *chunk))block
 {
+    //Check live memory first
+    
     for (WOChunk *chunk in chunks){
         if (CGPointEqualToPoint(chunk.coordinates, coordinates)){
-            return chunk;
+            if (block) block(chunk);
+            return;
         }
     }
     
-    //search archived
+    //check if archived exists already
+    
+    NSString *archivePath = [self pathOfChunkAtCoordinates:coordinates];
+    
+    if (archivePath){
+        [self unarchiveChunkWithFilePath:archivePath coordinates:coordinates completion:block];
+        return;
+    }
+    
+    //Otherwise, create new:
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize];
+        
+        chunk.position = CGPointMake(coordinates.x * chunkSize.width + chunkSize.width/2, coordinates.y * chunkSize.height + chunkSize.height/2);
+        
+        //Add floor tiles
+        NSArray *tiles = [WOFloor objectsInChunk:chunk];
+        
+        NSArray *walls = [WOWall objectsInChunk:chunk];
+        
+        NSArray *plants = [WOPlant objectsInChunk:chunk];
+        
+        NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (WOObject *tile in tiles)
+                [scene addChild:tile];
+            
+            for (WOObject *scrounger in scroungers)
+                [scene addChild:scrounger];
+            
+            for (WOObject *plant in plants)
+                [scene addChild:plant];
+            
+            for (WOObject *wall in walls)
+                [scene addChild:wall];
+            
+            [chunks addObject:chunk];
+            
+            if (block) block(chunk);
+        });
+    });
+}
+
+-(void)archiveChunk:(WOChunk *)chunk
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    
+        NSMutableArray *objectsInChunk = [NSMutableArray array];
+        
+        for (WOObject *object in scene.children){
+            if (CGPointEqualToPoint([object coordinates], chunk.coordinates)){
+                [objectsInChunk addObject:object];
+            }
+        }
+    
+        NSData *chunkData = [NSKeyedArchiver archivedDataWithRootObject:objectsInChunk];
+    
+        NSString *filename = [NSString stringWithFormat:@"chunkX%iY%i", (int)chunk.coordinates.x, (int)chunk.coordinates.y];
+        NSLog(@"ARCHIVING TO FILE %@", filename);
+        [chunkData writeToFile:[NSString stringWithFormat:@"%@/%@", DOCUMENTS, filename] atomically:YES];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [chunk remove]; //removes all managed objects as well
+            [chunks removeObject:chunk];
+            
+            for (int i = objectsInChunk.count - 1; i>=0; i--){
+                WOObject *object = objectsInChunk[i];
+                [object remove];
+            }
+        });
+    });
+}
+
+-(void)unarchiveChunkWithFilePath:(NSString *)path coordinates:(CGPoint)coordinates completion:(void(^)(WOChunk *))block
+{
+    NSLog(@"UNARCHIVING %.0f %.0f", coordinates.x, coordinates.y);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        
+        WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize];
+        
+        chunk.position = CGPointMake(coordinates.x * chunkSize.width + chunkSize.width/2, coordinates.y * chunkSize.height + chunkSize.height/2);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [chunks addObject:chunk];
+            
+            for (WOObject *object in objects){
+                [scene addChild:object];
+            }
+            
+            if (block) block(chunk);
+        });
+    });
+}
+
+-(NSString *)pathOfChunkAtCoordinates:(CGPoint)coordinates
+{
     for (NSString *chunkFileName in archivedChunkFileNames){
         
         NSString *filename = [NSString stringWithFormat:@"chunkX%iY%i", (int)coordinates.x, (int)coordinates.y];
@@ -150,100 +258,11 @@ static WOWorld *sharedWorld;
         BOOL foundFile = [[NSFileManager defaultManager] fileExistsAtPath:path];
         
         if (foundFile){
-            NSLog(@"Returning archived chunk");
-            WOChunk *chunk = [self unarchiveChunkWithFilePath:path coordinates:coordinates];
-            
-            return chunk;
+            return path;
         }
     }
     
     return nil;
-}
-
--(WOChunk *)unarchiveChunkWithFilePath:(NSString *)path coordinates:(CGPoint)coordinates
-{
-    NSLog(@"UNARCHIVING %.0f %.0f", coordinates.x, coordinates.y);
-
-    NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
-    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-    
-    WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize];
-    
-    chunk.position = CGPointMake(coordinates.x * chunkSize.width + chunkSize.width/2, coordinates.y * chunkSize.height + chunkSize.height/2);
-    
-    [chunks addObject:chunk];
-    
-    for (WOObject *object in objects){
-        [scene addChild:object];
-    }
-    
-    return chunk;
-}
-
--(WOChunk *)createChunkAtCoordinates:(CGPoint)coordinates
-{
-    NSLog(@"CREATING");
-
-    WOChunk *chunk = [[WOChunk alloc] initWithSize:chunkSize];
-        
-    chunk.position = CGPointMake(coordinates.x * chunkSize.width + chunkSize.width/2, coordinates.y * chunkSize.height + chunkSize.height/2);
-    
-    [chunks addObject:chunk];
-
-    //Add floor tiles
-    NSArray *tiles = [WOFloor objectsInChunk:chunk];
-    
-    
-    NSArray *walls = [WOWall objectsInChunk:chunk];
-    
-    
-    NSArray *plants = [WOPlant objectsInChunk:chunk];
-    
-    
-    NSArray *scroungers = [WOScrounger objectsInChunk:chunk];
-    
-            
-    for (WOObject *tile in tiles)
-        [scene addChild:tile];
-
-    for (WOObject *scrounger in scroungers)
-        [scene addChild:scrounger];
-    
-    for (WOObject *plant in plants)
-        [scene addChild:plant];
-    
-    for (WOObject *wall in walls)
-        [scene addChild:wall];
-    
-    return chunk;
-}
-
--(void)archiveChunk:(WOChunk *)chunk
-{
-    NSMutableArray *objectsInChunk = [NSMutableArray array];
-    
-    for (WOObject *object in scene.children){
-        if (CGPointEqualToPoint([object coordinates], chunk.coordinates)){
-            [objectsInChunk addObject:object];
-        }
-    }
-    
-    NSData *chunkData = [NSKeyedArchiver archivedDataWithRootObject:objectsInChunk];
-    
-    NSString *filename = [NSString stringWithFormat:@"chunkX%iY%i", (int)chunk.coordinates.x, (int)chunk.coordinates.y];
-    
-    NSLog(@"ARCHIVING TO FILE %@", filename);
-    
-    [chunkData writeToFile:[NSString stringWithFormat:@"%@/%@", DOCUMENTS, filename] atomically:YES];
-    
-    [chunk remove]; //removes all managed objects as well
-    [chunks removeObject:chunk];
-    
-    for (int i = objectsInChunk.count - 1; i>=0; i--){
-        WOObject *object = objectsInChunk[i];
-        [object remove];
-    }
 }
 
 @end

@@ -35,7 +35,7 @@
     
     CGPoint chunkPositionOffset = CGPointMake(chunk.position.x - chunk.size.width/2, chunk.position.y - chunk.size.height/2);
     
-    CGSize tileSize = objectSize;
+    CGSize tileSize = CGSizeMake(objectSize.width * 4, objectSize.height * 4);
     
     int numX = chunkSize.width / tileSize.width;
     int numY = chunkSize.height / tileSize.height;

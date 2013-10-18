@@ -84,4 +84,9 @@
     
 }
 
++(PerlinNoise *)classNoise
+{
+    return nil;
+}
+
 @end
