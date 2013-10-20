@@ -10,9 +10,14 @@
 
 @implementation WONoise
 
++(PerlinNoise *)noise
+{
+    return nil;
+}
+
 +(float)perlinGlobalValueAtPoint:(CGPoint)point
 {
-    return 0; //subclass this method with custom noise for things like temperature etc.
+    return [[[self class] noise] perlin2DValueForPointX:point.x y:point.y];
 }
 
 +(float)perlinValueAtPoint:(CGPoint)point inNoise:(PerlinNoise *)inputNoise

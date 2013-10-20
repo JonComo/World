@@ -16,6 +16,7 @@ static PerlinNoise *noise;
 
 @interface WONoise : NSObject
 
++(PerlinNoise *)noise;
 +(float)perlinGlobalValueAtPoint:(CGPoint)point;
 +(float)perlinValueAtPoint:(CGPoint)point inNoise:(PerlinNoise *)inputNoise;
 

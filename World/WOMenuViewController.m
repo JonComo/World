@@ -35,20 +35,13 @@
     }
 }
 
-- (IBAction)playSeed0:(id)sender
-{
-    [self playWithSeed:0];
+- (IBAction)playRandomSeed:(id)sender {
+    [self play];
 }
 
-- (IBAction)playRandomSeed:(id)sender
-{
-    [self playWithSeed:arc4random()];
-}
-
--(void)playWithSeed:(int)seed
+-(void)play
 {
     WOViewController *gameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameVC"];
-    gameVC.seed = seed;
     [self presentViewController:gameVC animated:YES completion:nil];
 }
 

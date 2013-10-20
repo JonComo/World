@@ -29,7 +29,7 @@
         //init
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         
-        world = [[WOWorld alloc] initWithSize:size seed:self.seed];
+        world = [[WOWorld alloc] initWithSize:size seed:arc4random()];
         world.position = CGPointMake(world.size.width/2, world.size.height/2);
         [self addChild:world];
         

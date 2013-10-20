@@ -11,6 +11,4 @@
 
 @interface WOViewController : UIViewController
 
-@property int seed;
-
 @end
