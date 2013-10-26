@@ -10,20 +10,20 @@
 
 @implementation WONoise
 
-+(PerlinNoise *)noise
+-(id)initWithSeed:(int)seed frequency:(float)frequency
 {
-    return nil;
+    if (self = [super initWithSeed:seed]) {
+        //init
+        self.frequency = frequency;
+    }
+    
+    return self;
 }
 
-+(float)perlinGlobalValueAtPoint:(CGPoint)point
-{
-    return [[[self class] noise] perlin2DValueForPointX:point.x y:point.y];
-}
-
-+(float)perlinValueAtPoint:(CGPoint)point inNoise:(PerlinNoise *)inputNoise
+-(float)perlinValueAtPoint:(CGPoint)point
 {
     //Utility method
-    return [inputNoise perlin2DValueForPointX:point.x / perlinStep.width + 10000000 y:point.y / perlinStep.height + 10000000];
+    return [self perlin2DValueForPointX:point.x / perlinStep.width + 10000000 y:point.y / perlinStep.height + 10000000];
 }
 
 @end

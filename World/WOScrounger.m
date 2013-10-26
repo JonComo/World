@@ -12,8 +12,6 @@
 
 #import "WOWorld.h"
 
-#import "WONoiseTemperature.h"
-
 @implementation WOScrounger
 {
     BOOL isWalking;
@@ -45,17 +43,17 @@
 
 -(void)update:(NSTimeInterval)currentTime
 {
-    if (arc4random()%80 == 0 && !isWalking)
+    if (rand()%80 == 0 && !isWalking)
     {
         isWalking = YES;
-        direction = (arc4random()%360) * M_PI/180;
-        intensity = (float)(arc4random()%10)/20.0f;
+        direction = (rand()%360) * M_PI/180;
+        intensity = (float)(rand()%10)/20.0f;
     }
     
     if (isWalking){
         [super runInDirection:direction intensity:intensity];
         
-        if (arc4random()%50 == 0)
+        if (rand()%50 == 0)
         {
             isWalking = NO;
         }
@@ -76,8 +74,8 @@
         
         CGPoint position = CGPointMake(chunkPositionOffset.x + x * tileSize.width, chunkPositionOffset.y + y * tileSize.height);
         
-        float tempLevel = [WONoiseTemperature perlinGlobalValueAtPoint:position];
-        float scroungerValue = [WONoise perlinValueAtPoint:position inNoise:[self classNoise]];
+        float tempLevel = [[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:position];
+        float scroungerValue = 0;
         
         if (tempLevel > 0.1 && scroungerValue > 0.1){
             WOScrounger *scrounger = [[WOScrounger alloc] initWithSize:CGSizeMake(objectSize.width/2, objectSize.height/2)];

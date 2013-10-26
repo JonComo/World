@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8606EE6018067B690031EB1C /* particleSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8606EE5E18067B690031EB1C /* particleSnow.sks */; };
-		8606EE661806835A0031EB1C /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8606EE651806835A0031EB1C /* snow.png */; };
 		8606EE69180692120031EB1C /* WOWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8606EE68180692120031EB1C /* WOWeatherManager.m */; };
 		8639E03C17FE274A004D75C8 /* WOFloor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8639E03B17FE274A004D75C8 /* WOFloor.m */; };
 		863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E72BC17FE21D3006BB7AC /* WOPlant.m */; };
+		8644B0EF181B320800C37495 /* WOMapViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8644B0EE181B320800C37495 /* WOMapViewerViewController.m */; };
 		8677618118091E1100585E71 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8677617E18091E1100585E71 /* RRAudioEngine.m */; };
 		8677618218091E1100585E71 /* RRAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8677618018091E1100585E71 /* RRAudioPlayer.m */; };
 		867761871809212B00585E71 /* stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 867761851809212B00585E71 /* stone.png */; };
@@ -31,6 +31,8 @@
 		867FC72F180CEE8000C5E0BF /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 867FC72E180CEE8000C5E0BF /* test.png */; };
 		8682452917FBD0D100FAB77D /* JCControlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452617FBD0D100FAB77D /* JCControlPad.m */; };
 		8682452D17FBD4CC00FAB77D /* WOChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682452C17FBD4CC00FAB77D /* WOChunk.m */; };
+		8690540C181B558500DB67E2 /* particleSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 8690540B181B558500DB67E2 /* particleSquare.png */; };
+		8690540E181B55FE00DB67E2 /* particleLeaf.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8690540D181B55FE00DB67E2 /* particleLeaf.sks */; };
 		86B48F2E17FBCD410003EA5F /* WOWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F2D17FBCD410003EA5F /* WOWorldScene.m */; };
 		86B48F3717FBCDBE0003EA5F /* PerlinNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3617FBCDBE0003EA5F /* PerlinNoise.m */; };
 		86B48F3E17FBCDDD0003EA5F /* WOCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B48F3917FBCDDD0003EA5F /* WOCharacter.m */; };
@@ -53,7 +55,6 @@
 		86C5DC8717FBCA8F005F6AEA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86C5DC8517FBCA8F005F6AEA /* InfoPlist.strings */; };
 		86C5DC8917FBCA8F005F6AEA /* WorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C5DC8817FBCA8F005F6AEA /* WorldTests.m */; };
 		86ECED8A17FE2DB100055C5B /* WONoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ECED8917FE2DB100055C5B /* WONoise.m */; };
-		86ECED8E17FE2DCB00055C5B /* WONoiseTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */; };
 		86F5DD4117FE8AE7002AA056 /* JCMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5DD4017FE8AE7002AA056 /* JCMath.m */; };
 		86F99C1917FE79F8002DEFB7 /* WOWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F99C1817FE79F8002DEFB7 /* WOWall.m */; };
 /* End PBXBuildFile section */
@@ -70,13 +71,14 @@
 
 /* Begin PBXFileReference section */
 		8606EE5E18067B690031EB1C /* particleSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleSnow.sks; sourceTree = "<group>"; };
-		8606EE651806835A0031EB1C /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		8606EE67180692120031EB1C /* WOWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWeatherManager.h; sourceTree = "<group>"; };
 		8606EE68180692120031EB1C /* WOWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWeatherManager.m; sourceTree = "<group>"; };
 		8639E03A17FE274A004D75C8 /* WOFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOFloor.h; sourceTree = "<group>"; };
 		8639E03B17FE274A004D75C8 /* WOFloor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOFloor.m; sourceTree = "<group>"; };
 		863E72BB17FE21D3006BB7AC /* WOPlant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOPlant.h; sourceTree = "<group>"; };
 		863E72BC17FE21D3006BB7AC /* WOPlant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOPlant.m; sourceTree = "<group>"; };
+		8644B0ED181B320800C37495 /* WOMapViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMapViewerViewController.h; sourceTree = "<group>"; };
+		8644B0EE181B320800C37495 /* WOMapViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMapViewerViewController.m; sourceTree = "<group>"; };
 		8677617D18091E1100585E71 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
 		8677617E18091E1100585E71 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		8677617F18091E1100585E71 /* RRAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioPlayer.h; sourceTree = "<group>"; };
@@ -104,6 +106,8 @@
 		8682452617FBD0D100FAB77D /* JCControlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCControlPad.m; sourceTree = "<group>"; };
 		8682452B17FBD4CC00FAB77D /* WOChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOChunk.h; sourceTree = "<group>"; };
 		8682452C17FBD4CC00FAB77D /* WOChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOChunk.m; sourceTree = "<group>"; };
+		8690540B181B558500DB67E2 /* particleSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleSquare.png; sourceTree = "<group>"; };
+		8690540D181B55FE00DB67E2 /* particleLeaf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleLeaf.sks; sourceTree = "<group>"; };
 		86B48F2C17FBCD410003EA5F /* WOWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWorldScene.h; sourceTree = "<group>"; };
 		86B48F2D17FBCD410003EA5F /* WOWorldScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWorldScene.m; sourceTree = "<group>"; };
 		86B48F3517FBCDBE0003EA5F /* PerlinNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerlinNoise.h; sourceTree = "<group>"; };
@@ -139,8 +143,6 @@
 		86C5DC8817FBCA8F005F6AEA /* WorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldTests.m; sourceTree = "<group>"; };
 		86ECED8817FE2DB100055C5B /* WONoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WONoise.h; sourceTree = "<group>"; };
 		86ECED8917FE2DB100055C5B /* WONoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WONoise.m; sourceTree = "<group>"; };
-		86ECED8C17FE2DCB00055C5B /* WONoiseTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WONoiseTemperature.h; sourceTree = "<group>"; };
-		86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WONoiseTemperature.m; sourceTree = "<group>"; };
 		86F5DD3F17FE8AE7002AA056 /* JCMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMath.h; sourceTree = "<group>"; };
 		86F5DD4017FE8AE7002AA056 /* JCMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMath.m; sourceTree = "<group>"; };
 		86F99C1717FE79F8002DEFB7 /* WOWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWall.h; sourceTree = "<group>"; };
@@ -175,7 +177,8 @@
 		8606EE621806825B0031EB1C /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				8606EE651806835A0031EB1C /* snow.png */,
+				8690540B181B558500DB67E2 /* particleSquare.png */,
+				8690540D181B55FE00DB67E2 /* particleLeaf.sks */,
 				8606EE5E18067B690031EB1C /* particleSnow.sks */,
 			);
 			name = Particles;
@@ -208,15 +211,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		867761951809313D00585E71 /* View */ = {
+		867761951809313D00585E71 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				86C5DC6D17FBCA8E005F6AEA /* WOViewController.h */,
 				86C5DC6E17FBCA8E005F6AEA /* WOViewController.m */,
 				867761921809313200585E71 /* WOMenuViewController.h */,
 				867761931809313200585E71 /* WOMenuViewController.m */,
+				8644B0ED181B320800C37495 /* WOMapViewerViewController.h */,
+				8644B0EE181B320800C37495 /* WOMapViewerViewController.m */,
 			);
-			name = View;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		867B657818053F3500219E61 /* sounds */ = {
@@ -251,17 +256,6 @@
 			name = AI;
 			sourceTree = "<group>";
 		};
-		8682452417FBCF9C00FAB77D /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				86B48F4217FBCDFB0003EA5F /* WOWorld.h */,
-				86B48F4317FBCDFB0003EA5F /* WOWorld.m */,
-				8682452B17FBD4CC00FAB77D /* WOChunk.h */,
-				8682452C17FBD4CC00FAB77D /* WOChunk.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		86B48F2B17FBCD200003EA5F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +268,8 @@
 		86B48F4117FBCDE10003EA5F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				8682452B17FBD4CC00FAB77D /* WOChunk.h */,
+				8682452C17FBD4CC00FAB77D /* WOChunk.m */,
 				86B48F3A17FBCDDD0003EA5F /* WOObject.h */,
 				86B48F3B17FBCDDD0003EA5F /* WOObject.m */,
 				86B48F3817FBCDDD0003EA5F /* WOCharacter.h */,
@@ -342,12 +338,13 @@
 				86C5DC6717FBCA8E005F6AEA /* WOAppDelegate.h */,
 				86C5DC6817FBCA8E005F6AEA /* WOAppDelegate.m */,
 				86C5DC6A17FBCA8E005F6AEA /* Main.storyboard */,
-				867761951809313D00585E71 /* View */,
+				86B48F4217FBCDFB0003EA5F /* WOWorld.h */,
+				86B48F4317FBCDFB0003EA5F /* WOWorld.m */,
+				867761951809313D00585E71 /* ViewControllers */,
 				867761831809212B00585E71 /* media */,
 				867B657818053F3500219E61 /* sounds */,
-				8682452417FBCF9C00FAB77D /* Controllers */,
-				86B48F4117FBCDE10003EA5F /* Objects */,
 				86B48F2B17FBCD200003EA5F /* Scenes */,
+				86B48F4117FBCDE10003EA5F /* Objects */,
 				86ECED8B17FE2DB500055C5B /* Noise */,
 				867B659D18054A2400219E61 /* AI */,
 				8606EE621806825B0031EB1C /* Particles */,
@@ -392,8 +389,6 @@
 			children = (
 				86ECED8817FE2DB100055C5B /* WONoise.h */,
 				86ECED8917FE2DB100055C5B /* WONoise.m */,
-				86ECED8C17FE2DCB00055C5B /* WONoiseTemperature.h */,
-				86ECED8D17FE2DCB00055C5B /* WONoiseTemperature.m */,
 			);
 			name = Noise;
 			sourceTree = "<group>";
@@ -475,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8690540E181B55FE00DB67E2 /* particleLeaf.sks in Resources */,
 				867B6590180544A200219E61 /* stone2.caf in Resources */,
 				867B6596180545C000219E61 /* leaf0.caf in Resources */,
 				867B6597180545C000219E61 /* leaf1.caf in Resources */,
@@ -485,9 +481,9 @@
 				867B6598180545C000219E61 /* leaf2.caf in Resources */,
 				867B658F180544A200219E61 /* stone1.caf in Resources */,
 				86C5DC6C17FBCA8E005F6AEA /* Main.storyboard in Resources */,
-				8606EE661806835A0031EB1C /* snow.png in Resources */,
 				867FC72F180CEE8000C5E0BF /* test.png in Resources */,
 				8677619118092A5000585E71 /* leaf.png in Resources */,
+				8690540C181B558500DB67E2 /* particleSquare.png in Resources */,
 				8606EE6018067B690031EB1C /* particleSnow.sks in Resources */,
 				867B6591180544A200219E61 /* stone3.caf in Resources */,
 				867B658E180544A200219E61 /* stone0.caf in Resources */,
@@ -512,7 +508,6 @@
 				86B48F4417FBCDFB0003EA5F /* WOWorld.m in Sources */,
 				867B65A018054B4600219E61 /* WOScrounger.m in Sources */,
 				86F5DD4117FE8AE7002AA056 /* JCMath.m in Sources */,
-				86ECED8E17FE2DCB00055C5B /* WONoiseTemperature.m in Sources */,
 				867B659C18054A1E00219E61 /* WOAI.m in Sources */,
 				86B48F3E17FBCDDD0003EA5F /* WOCharacter.m in Sources */,
 				863E72BD17FE21D3006BB7AC /* WOPlant.m in Sources */,
@@ -530,6 +525,7 @@
 				86ECED8A17FE2DB100055C5B /* WONoise.m in Sources */,
 				86C5DC6517FBCA8E005F6AEA /* main.m in Sources */,
 				86C5DC6F17FBCA8E005F6AEA /* WOViewController.m in Sources */,
+				8644B0EF181B320800C37495 /* WOMapViewerViewController.m in Sources */,
 				8677618218091E1100585E71 /* RRAudioPlayer.m in Sources */,
 				8606EE69180692120031EB1C /* WOWeatherManager.m in Sources */,
 				86F99C1917FE79F8002DEFB7 /* WOWall.m in Sources */,

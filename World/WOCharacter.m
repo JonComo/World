@@ -8,7 +8,7 @@
 
 #import "WOCharacter.h"
 
-#import "WONoiseTemperature.h"
+#import "WOWorld.h"
 
 #import "RRAudioEngine.h"
 
@@ -50,13 +50,13 @@
         
         NSString *substance = @"stone";
         
-        if ([WONoiseTemperature perlinGlobalValueAtPoint:self.position] > 0) {
+        if ([[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:self.position] > 0) {
             substance = @"leaf";
         }
         
         SKAction *walk = [SKAction sequence:@[[SKAction moveBy:CGVectorMake(0, -6) duration:0.2], [SKAction moveBy:CGVectorMake(0, 6) duration:0.3]]];
         
-        [[RRAudioEngine sharedEngine] playSoundNamed:[NSString stringWithFormat:@"%@%i.caf", substance, arc4random()%4] volume:0.3 loop:NO];
+        [[RRAudioEngine sharedEngine] playSoundNamed:[NSString stringWithFormat:@"%@%i.caf", substance, rand()%4] volume:0.3 loop:NO];
         
         [self runAction:walk];
     }

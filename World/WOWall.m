@@ -8,8 +8,8 @@
 
 #import "WOWall.h"
 
+#import "WOWorld.h"
 #import "WOChunk.h"
-#import "WONoiseTemperature.h"
 
 @implementation WOWall
 
@@ -37,15 +37,14 @@
     [chunk iterateWithTileSize:tileSize block:^(int x, int y) {
         CGPoint tilePosition = CGPointMake(chunkPositionOffset.x + tileSize.width * x + tileSize.width/2, chunkPositionOffset.y + tileSize.height * y + tileSize.height/2);
         
-        float perlinValue = [WONoiseTemperature perlinGlobalValueAtPoint:tilePosition];
+        float perlinValue = [[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:tilePosition];
         
-        if (perlinValue < - 0.01 && perlinValue > -0.018 && arc4random()%3 == 0)
+        if (perlinValue < - 0.01 && perlinValue > -0.018 && rand()%3 == 0)
         {
             WOWall *wall = [[WOWall alloc] initWithSize:tileSize];
             wall.position = tilePosition;
             
-            
-            wall.color = [UIColor colorWithRed:0.2 + perlinValue green:0.2 - perlinValue blue:0.3 + perlinValue * 2 alpha:1];
+            wall.color = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1];
             
             [objects addObject:wall];
         }

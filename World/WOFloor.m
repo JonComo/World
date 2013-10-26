@@ -11,8 +11,6 @@
 #import "WOWorld.h"
 #import "WOChunk.h"
 
-#import "WONoiseTemperature.h"
-
 #import "SKTexture+Utility.h"
 
 #import "JCMath.h"
@@ -44,11 +42,11 @@
         for (int y = 0; y<numY; y++) {
             CGPoint tilePosition = CGPointMake(chunkPositionOffset.x + tileSize.width * x + tileSize.width/2, chunkPositionOffset.y + tileSize.height * y + tileSize.height/2);
             
-            float perlinValue = [WONoiseTemperature perlinGlobalValueAtPoint:tilePosition];
+            float perlinValue = [[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:tilePosition];
             
             WOObject *floorTile = [[WOObject alloc] initWithSize:tileSize];
             floorTile.position = tilePosition;
-            floorTile.zPosition = -100;
+            floorTile.zPosition = Z_DEPTH_FLOOR;
             
             SKTexture *baseTexture = [SKTexture textureWithImageNamed: perlinValue < 0 ? @"stone" : @"leaf"];
             baseTexture.filteringMode = SKTextureFilteringNearest;
@@ -56,9 +54,9 @@
             floorTile.texture = [SKTexture textureWithRandomSubRectOfSize:CGSizeMake(8, 8) ofTexture:baseTexture];
             
             floorTile.texture.filteringMode = SKTextureFilteringNearest;
-            floorTile.colorBlendFactor = 0.6;
+            floorTile.colorBlendFactor = 1;
             
-            floorTile.color = [UIColor colorWithRed:0.5 + perlinValue * 3 green:0.5 + perlinValue * 2 blue:0.5 alpha:1];
+            floorTile.color = [UIColor colorWithRed:0.5 + perlinValue * 6 green:0.5 + perlinValue * 4 blue:0.5 alpha:1];
             
             [objects addObject:floorTile];
         }

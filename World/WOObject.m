@@ -20,6 +20,7 @@
     if (self = [super initWithTexture:nil color:nil size:size]) {
         //init
         _managedObjects = [NSMutableArray array];
+        self.zPosition = Z_DEPTH_OBJECT;
     }
     
     return self;

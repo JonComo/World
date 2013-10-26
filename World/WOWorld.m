@@ -19,8 +19,6 @@
 
 #import "WOWeatherManager.h"
 
-#import "WONoiseTemperature.h"
-
 static WOWorld *sharedWorld;
 static int seed;
 
@@ -51,7 +49,10 @@ static int seed;
 {
     if (self = [super initWithSize:size]) {
         //init
-        seed = globalSeed;
+        srandom(globalSeed);
+        
+        _noiseTemperature = [[WONoise alloc] initWithSeed:globalSeed frequency:0.01];
+        _noisePlant = [[WONoise alloc] initWithSeed:globalSeed frequency:0.08];
         
         distantChunks = [NSMutableArray array];
         
@@ -62,12 +63,12 @@ static int seed;
         
         _player = [[WOPlayer alloc] initWithSize:CGSizeMake(objectSize.width * 3/4, objectSize.height * 3/4)];
         _player.position = CGPointMake(0, 0);
-        _player.zPosition = 0;
+        _player.zPosition = Z_DEPTH_PLAYER;
         [scene addChild:_player];
         
         weatherManager = [[WOWeatherManager alloc] initWithSize:self.size target:_player];
         [self addChild:weatherManager];
-        weatherManager.zPosition = -100;
+        weatherManager.zPosition = Z_DEPTH_WEATHER;
         
         NSTimer *timerChunks;
         timerChunks = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateChunks) userInfo:nil repeats:YES];
@@ -84,7 +85,7 @@ static int seed;
         if ([object isKindOfClass:[WOObject class]]) [object update:currentTime];
     }
     
-    float playerTemp = [WONoiseTemperature perlinGlobalValueAtPoint:self.player.position];
+    float playerTemp = [[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:self.player.position];
     weatherManager.tempurature = playerTemp;
     
     [weatherManager update:currentTime];
@@ -176,10 +177,10 @@ static int seed;
         dispatch_async(dispatch_get_main_queue(), ^{
             for (WOObject *tile in tiles)
                 [scene addChild:tile];
-            
-            for (WOObject *scrounger in scroungers)
-                [scene addChild:scrounger];
-            
+//
+//            for (WOObject *scrounger in scroungers)
+//                [scene addChild:scrounger];
+//            
             for (WOObject *plant in plants)
                 [scene addChild:plant];
             

@@ -22,8 +22,8 @@
     int widthRemaining = roundf(texture.size.width - rectSize.width);
     int heightRemaining = roundf(texture.size.height - rectSize.height);
     
-    float randomX = (float)((arc4random()%widthRemaining)/texture.size.width);
-    float randomY = (float)((arc4random()%heightRemaining)/texture.size.height);
+    float randomX = (float)((rand()%widthRemaining)/texture.size.width);
+    float randomY = (float)((rand()%heightRemaining)/texture.size.height);
     
     return CGRectMake(randomX, randomY, rectSize.width/texture.size.width, rectSize.height/texture.size.width);
 }

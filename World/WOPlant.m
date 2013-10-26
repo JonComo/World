@@ -11,8 +11,6 @@
 #import "WOChunk.h"
 #import "WOWorld.h"
 
-#import "WONoiseTemperature.h"
-
 @implementation WOPlant
 
 +(PerlinNoise *)classNoise
@@ -49,13 +47,14 @@
             
         CGPoint plantPosition = CGPointMake(chunkPositionOffset.x + x * plantTileSize.width,  chunkPositionOffset.y + y * plantTileSize.height);
         
-        float plantValue = [WONoise perlinValueAtPoint:plantPosition inNoise:[self classNoise]];
-        float tempLevel = [WONoiseTemperature perlinGlobalValueAtPoint:plantPosition];
+        float plantValue = [[WOWorld sharedWorld].noisePlant perlinValueAtPoint:plantPosition];
+        float tempLevel = [[WOWorld sharedWorld].noiseTemperature perlinValueAtPoint:plantPosition];
         
-        if (plantValue < - 0.24 && tempLevel < -0.1){
+        if (plantValue > 0.08 && tempLevel > 0.03){
             WOPlant *plant = [[WOPlant alloc] initWithSize:CGSizeMake(10 + MAX(0, 10 * -plantValue), 10 + MAX(0, 10 * -plantValue))];
             plant.position = plantPosition;
             plant.color = [UIColor orangeColor];
+            
             [objects addObject:plant];
         }
     }];

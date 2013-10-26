@@ -11,15 +11,16 @@
 #import "WOObject.h"
 
 @implementation WOWeatherManager
+{
+    NSString *currentEmitterName;
+    BOOL isTransitioning;
+}
 
 -(id)initWithSize:(CGSize)size target:(WOObject *)target
 {
     if (self = [super init]) {
         //init
         _target = target;
-        
-        _emitter = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"particleSnow" ofType:@"sks"]];
-        [self addChild:_emitter];
         
         _wind.dx = 10;
         _wind.dy = -6;
@@ -39,14 +40,38 @@
 
 -(void)setTempurature:(float)tempurature
 {
-    if (tempurature < 0)
-    {
-        if (self.emitter.particleBirthRate != 6)
-            self.emitter.particleBirthRate = 6;
+    if (tempurature < 0){
+        [self transitionToEmitterNamed:@"particleSnow"];
     }else{
-        if (self.emitter.particleBirthRate != 0)
-            self.emitter.particleBirthRate = 0;
+        [self transitionToEmitterNamed:@"particleLeaf"];
     }
+}
+
+-(void)transitionToEmitterNamed:(NSString *)name
+{
+    if ([currentEmitterName isEqualToString:name] || isTransitioning) return;
+    
+    NSLog(@"Transition: %@", name);
+    
+    currentEmitterName = name;
+    isTransitioning = YES;
+    self.emitter.particleBirthRate = 0;
+    
+    double delayInSeconds = 4.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSLog(@"Started: %@", name);
+        
+        [self.emitter removeFromParent];
+        self.emitter = nil;
+        
+        self.emitter = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:name ofType:@"sks"]];
+        [self addChild:self.emitter];
+        
+        self.emitter.particleBirthRate = 6;
+        
+        isTransitioning = NO;
+    });
 }
 
 -(void)update:(NSTimeInterval)currentTime
